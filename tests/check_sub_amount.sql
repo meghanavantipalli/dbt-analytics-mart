@@ -1,0 +1,1 @@
+select * from {{ref("stg_subscriptions")}} where monthly_price<0

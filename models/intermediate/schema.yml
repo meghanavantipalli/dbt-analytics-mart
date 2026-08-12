@@ -1,0 +1,32 @@
+models:
+
+  - name: int_subscription_metrics
+    description: "Subscription-level metrics including payment and revenue calculations."
+
+    columns:
+
+      - name: subscription_id
+        tests:
+          - unique
+          - not_null
+
+      - name: user_id
+        tests:
+          - not_null
+
+      - name: total_revenue
+        tests:
+          - not_null
+
+  - name: int_customer_lifetime
+
+    columns:
+
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+
+      - name: tot_amount
+        tests:
+          - not_null
