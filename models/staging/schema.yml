@@ -1,0 +1,57 @@
+version: 2
+models:
+  - name: stg_users
+    description: user information
+    columns: 
+      - name: user_id
+        description: primary key of the users table
+        tests:
+        - unique
+        - not_null
+      - name: full_name
+        description: first name and last name concatinated
+      - name: email
+        description: email of the user
+        tests:
+        - unique
+        - not_null
+      - name: country
+
+  - name: stg_subscriptions
+    description: user subscriptions
+    columns: 
+     - name: subscription_id
+       tests:
+       - unique
+       - not_null
+     - name: user_id
+     - name: plan_tier
+     - name: status
+       data_tests:
+         - accepted_values:
+            arguments:
+             values:
+              - Active
+              - Canceled
+              - Paused
+     - name: monthly_price
+     - name: signup_date
+     - name: updated_at
+
+  - name: stg_transactions
+    description: transactions
+    columns:
+      - name: transaction_id
+        tests:
+        - unique
+        - not_null
+      - name: subscription_id
+        description: foriegn key to connect with subscriptions
+      - name: amount
+      - name: payment_status
+      - name: transaction_date
+        
+
+       
+        
+         

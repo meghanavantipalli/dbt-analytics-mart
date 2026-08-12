@@ -1,0 +1,28 @@
+models:
+
+  - name: dim_customers
+    description: "Customer dimension containing customer attributes,lifetime revenue metrics, and customer segmentation."
+    columns:
+     - name: customer_key
+       tests:
+           - unique
+           - not_null
+     - name: user_id
+       tests:
+        - unique
+        - not_null
+
+
+  - name: fct_subscription_revenue
+    columns:
+      - name: subscription_key
+        tests:
+          - unique
+          - not_null
+      - name: customer_key
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_key
+          
