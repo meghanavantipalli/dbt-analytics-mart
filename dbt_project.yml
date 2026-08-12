@@ -40,7 +40,10 @@ models:
     # Applies to all files under models/example/
     staging:
       +materialized: view
+      +schema: bronze
     intermediate:
       +materialized: view
+      +schema: silver
     mart:
       +materialized: table
+      +schema: gold
