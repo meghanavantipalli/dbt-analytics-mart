@@ -2,5 +2,5 @@
 case when tot_amount>=10 then 'Premium'
      when tot_amount>=5 then 'gold'
      when tot_amount>=1 then 'silver'
-     else 'bronze' end 
+     else 'Bronze' end 
 {% endmacro %}
